@@ -52,11 +52,11 @@ void ByteStream::pop_output(const size_t len) {
         return;
     }
     for (size_t i = 0; i < len; ++i) {
-        if (_buffer.back() == '\0') {
+        if (_buffer.back() == '\0')
             _eof = true;
-        } else {
+        else
             --_buffer_size;
-        }
+
         ++_bytes_read;
         _buffer.pop_back();
     }
