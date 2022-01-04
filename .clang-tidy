@@ -1,0 +1,29 @@
+---
+Checks: "
+  bugprone-*,
+  clang-analyzer-*,
+  concurrency-*,
+  cppcoreguidelines-*,
+  llvm-*,
+  modernize-*,
+  performance-*,
+  portability-*,
+  readability-*,
+  misc-*,
+  -misc-no-recursion,
+  -misc-unused-parameters,
+  -bugprone-easily-swappable-parameters,
+  -google-build-using-namespace,
+  -google-readability-braces-around-statements,
+  -readability-magic-numbers,
+  -readability-braces-around-statements,
+  -cppcoreguidelines-special-member-functions,
+  -readability-avoid-const-params-in-decls,
+  -modernize-use-trailing-return-type,
+  -modernize-use-nodiscard,
+  "
+
+WarningsAsErrors: "*"
+HeaderFilterRegex: "/(src|test)/include"
+AnalyzeTemporaryDtors: true
+FormatStyle: llvm
