@@ -8,7 +8,7 @@ if (NOT CLANG_TIDY)
     # is clang-tidy available?
     execute_process (COMMAND ${CLANG_TIDY_TMP} --version RESULT_VARIABLE CLANG_TIDY_RESULT OUTPUT_VARIABLE CLANG_TIDY_VERSION)
     if (${CLANG_TIDY_RESULT} EQUAL 0)
-        string (REGEX MATCH "version [0-9]" CLANG_TIDY_VERSION ${CLANG_TIDY_VERSION})
+        string (REGEX MATCH "version [0-9]+" CLANG_TIDY_VERSION ${CLANG_TIDY_VERSION})
         message (STATUS "Found clang-tidy " ${CLANG_TIDY_VERSION})
         set (CLANG_TIDY ${CLANG_TIDY_TMP} CACHE STRING "clang-tidy executable name")
     endif (${CLANG_TIDY_RESULT} EQUAL 0)
