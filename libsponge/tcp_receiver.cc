@@ -8,8 +8,8 @@
 using namespace std;
 
 void TCPReceiver::segment_received(const TCPSegment &seg) {
-    const TCPHeader &header = seg.header();
-    uint64_t seqno = unwrap(header.seqno, _isn, _checkpoint);
+    auto const &header = seg.header();
+    auto seqno = unwrap(header.seqno, _isn, _checkpoint);
 
     if (header.syn) {  // set parameters if it's SYN
         if (_syn_rec)  // pass if received SYN again
@@ -39,7 +39,7 @@ void TCPReceiver::segment_received(const TCPSegment &seg) {
 }
 
 optional<WrappingInt32> TCPReceiver::ackno() const {
-    uint64_t offset = _fin_rec && _reassembler.unassembled_bytes() == 0 ? 2 : 1;
+    auto const offset = _fin_rec && _reassembler.unassembled_bytes() == 0 ? 2 : 1;
     if (_syn_rec)
         return wrap(_reassembler.last_unassembled() + offset, _isn);
     return {};

@@ -20,9 +20,7 @@ class TCPReceiver {
     //! The maximum number of bytes we'll store.
     size_t _capacity;
     uint64_t _checkpoint{0};
-
     WrappingInt32 _isn{0};
-    WrappingInt32 _ackno{0};
 
     bool _fin_rec{false};
     bool _syn_rec{false};
